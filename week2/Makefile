@@ -1,0 +1,12 @@
+CC = gcc
+CFLAGS = -Wall -pedantic-errors -std=gnu89 -O3
+HEADER = -I./
+MISC = funciones.c global.c main.c
+
+all: clean programa
+
+programa:
+	$(CC) -o prog1 $(CFLAGS) $(HEADER) $(MISC) -pthread
+clean:
+	rm -f *.o prog1
+#lo que elimino en el clean es el ejecutable

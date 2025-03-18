@@ -1,0 +1,7 @@
+#include "stdio.h"
+
+int main(int inc, char *argv[])
+{
+	printf("Soy mauricio");
+	return 0;
+};
