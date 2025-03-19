@@ -1,4 +1,4 @@
 #include "global.h"
 
-char chValGlob'
+char chValGlob;
 int inNumGlob;
