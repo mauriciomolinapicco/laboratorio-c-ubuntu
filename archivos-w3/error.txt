@@ -1,0 +1,157 @@
+mauricio@mauricio-laptop:~/lab3/archivos-w3$ make
+rm -f *.o prog
+gcc -o prog -Wall -pedantic-errors -std=gnu89 -O3 -I./ main.c archivos.c productos.c -pthread
+In file included from main.c:1:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+main.c: In function ‘main’:
+main.c:8: warning: implicit declaration of function ‘producirProductos’
+In file included from archivos.c:1:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+archivos.c: At top level:
+archivos.c:8: error: redefinition of ‘abrirArchivo’
+archivos.h:6: error: previous definition of ‘abrirArchivo’ was here
+archivos.c: In function ‘abrirArchivo’:
+archivos.c:9: error: too few arguments to function ‘fopen’
+archivos.c:10: error: expected expression before ‘!=’ token
+archivos.c: At top level:
+archivos.c:18: error: redefinition of ‘escribirArchivo’
+archivos.h:8: error: previous definition of ‘escribirArchivo’ was here
+archivos.c:24: error: redefinition of ‘leerArchivo’
+archivos.h:10: error: previous definition of ‘leerArchivo’ was here
+archivos.c: In function ‘leerArchivo’:
+archivos.c:32: warning: function returns address of local variable
+archivos.c: At top level:
+archivos.c:36: error: redefinition of ‘cerrarArchivo’
+archivos.h:12: error: previous definition of ‘cerrarArchivo’ was here
+In file included from productos.c:2:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+productos.c: In function ‘producirProductos’:
+productos.c:12: error: ‘for’ loop initial declaration used outside C99 mode
+productos.c:17: error: ‘contenido’ undeclared (first use in this function)
+productos.c:17: error: (Each undeclared identifier is reported only once
+productos.c:17: error: for each function it appears in.)
+make: *** [programa] Error 1
+mauricio@mauricio-laptop:~/lab3/archivos-w3$ gedit productos.c
+mauricio@mauricio-laptop:~/lab3/archivos-w3$ make
+rm -f *.o prog
+gcc -o prog -Wall -pedantic-errors -std=gnu89 -O3 -I./ main.c archivos.c productos.c -pthread
+In file included from main.c:1:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+main.c: In function ‘main’:
+main.c:8: warning: implicit declaration of function ‘producirProductos’
+In file included from archivos.c:1:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+archivos.c: At top level:
+archivos.c:8: error: redefinition of ‘abrirArchivo’
+archivos.h:6: error: previous definition of ‘abrirArchivo’ was here
+archivos.c: In function ‘abrirArchivo’:
+archivos.c:9: error: too few arguments to function ‘fopen’
+archivos.c:10: error: expected expression before ‘!=’ token
+archivos.c: At top level:
+archivos.c:18: error: redefinition of ‘escribirArchivo’
+archivos.h:8: error: previous definition of ‘escribirArchivo’ was here
+archivos.c:24: error: redefinition of ‘leerArchivo’
+archivos.h:10: error: previous definition of ‘leerArchivo’ was here
+archivos.c: In function ‘leerArchivo’:
+archivos.c:32: warning: function returns address of local variable
+archivos.c: At top level:
+archivos.c:36: error: redefinition of ‘cerrarArchivo’
+archivos.h:12: error: previous definition of ‘cerrarArchivo’ was here
+In file included from productos.c:2:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+productos.c: In function ‘producirProductos’:
+productos.c:12: error: ‘for’ loop initial declaration used outside C99 mode
+productos.c:17: error: ‘contenido’ undeclared (first use in this function)
+productos.c:17: error: (Each undeclared identifier is reported only once
+productos.c:17: error: for each function it appears in.)
+make: *** [programa] Error 1
+mauricio@mauricio-laptop:~/lab3/archivos-w3$ 
+mauricio@mauricio-laptop:~/lab3/archivos-w3$ gedit productos.c
+mauricio@mauricio-laptop:~/lab3/archivos-w3$ make
+rm -f *.o prog
+gcc -o prog -Wall -pedantic-errors -std=gnu89 -O3 -I./ main.c archivos.c productos.c -pthread
+In file included from main.c:1:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+main.c: In function ‘main’:
+main.c:8: warning: implicit declaration of function ‘producirProductos’
+In file included from archivos.c:1:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+archivos.c: At top level:
+archivos.c:8: error: redefinition of ‘abrirArchivo’
+archivos.h:6: error: previous definition of ‘abrirArchivo’ was here
+archivos.c: In function ‘abrirArchivo’:
+archivos.c:9: error: too few arguments to function ‘fopen’
+archivos.c:10: error: expected expression before ‘!=’ token
+archivos.c: At top level:
+archivos.c:18: error: redefinition of ‘escribirArchivo’
+archivos.h:8: error: previous definition of ‘escribirArchivo’ was here
+archivos.c:24: error: redefinition of ‘leerArchivo’
+archivos.h:10: error: previous definition of ‘leerArchivo’ was here
+archivos.c: In function ‘leerArchivo’:
+archivos.c:32: warning: function returns address of local variable
+archivos.c: At top level:
+archivos.c:36: error: redefinition of ‘cerrarArchivo’
+archivos.h:12: error: previous definition of ‘cerrarArchivo’ was here
+In file included from productos.c:2:
+archivos.h: In function ‘abrirArchivo’:
+archivos.h:6: warning: no return statement in function returning non-void
+archivos.h: In function ‘escribirArchivo’:
+archivos.h:8: error: ISO C forbids nested functions
+archivos.h:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘}’ token
+archivos.h: In function ‘leerArchivo’:
+archivos.h:10: warning: no return statement in function returning non-void
+productos.c: In function ‘producirProductos’:
+productos.c:12: error: ‘for’ loop initial declaration used outside C99 mode
+productos.c:17: error: ‘contenido’ undeclared (first use in this function)
+productos.c:17: error: (Each undeclared identifier is reported only once
+productos.c:17: error: for each function it appears in.)
+make: *** [programa] Error 1
+
