@@ -1,0 +1,17 @@
+#include "archivos.h"
+#include "productos.h"
+#include "clave.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+
+int main(int argc, char *argv[]){
+	int cantProductos = 10;
+	producirProductos(cantProductos);
+	consumirProductos();
+	printf("---------------\n");
+	key_t clave = creo_clave();
+	printf("La clave creada es: %d\n", clave);
+	return 0;
+}
+
