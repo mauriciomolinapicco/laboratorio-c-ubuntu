@@ -1,0 +1,10 @@
+#ifndef SEMAFORO_H
+#define SEMAFORO_H
+
+int crear_semaforo(int valor_inicial);
+int obtener_semaforo(void);
+void esperar_semaforo(int id_semaforo);
+void senalar_semaforo(int id_semaforo);
+void eliminar_semaforo(int id_semaforo);
+
+#endif

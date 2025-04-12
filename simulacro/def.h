@@ -1,1 +1,0 @@
-#define NOMBRE_ARCH "pedidos.txt"
