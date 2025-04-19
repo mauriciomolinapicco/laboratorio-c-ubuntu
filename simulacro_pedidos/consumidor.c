@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
     sistema = argv[1][0];
     id_semaforo = creo_semaforo();
 
-    /* inicia_semaforo(id_semaforo, ROJO); */
 
     while(1) {
         cant_pedidos=0;
@@ -56,7 +55,6 @@ int main(int argc, char *argv[]) {
         printf("Cantidad de pedidos: %d\n", cant_pedidos);
         printf("Total en dinero: $%d\n", total_ventas);
         usleep(INTERVALO);
-        
     }
 
     return 0; /*nunca va a llegar aca */

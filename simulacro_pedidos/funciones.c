@@ -58,4 +58,3 @@ void generar_pedido(Pedido *pedido) {
             return;
     }
 }
-
