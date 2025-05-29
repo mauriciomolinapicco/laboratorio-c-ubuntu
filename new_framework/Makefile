@@ -1,5 +1,5 @@
 CC = gcc
-HEADERS = --pedantic-errors -Wall -O3 -I./
+HEADERS = --pedantic-errors -Wall -O3 -I./ -pthread
 
 all: clean productor consumidor main
 
