@@ -1,0 +1,8 @@
+mauricio@mauricio-laptop:/mnt/shared/tp_adivina_numero_molina$ make
+rm -f *.o *.txt adivino 
+gcc -o adivino thread.c 
+/tmp/ccImdHgO.o: In function `main':
+thread.c:(.text+0x161): undefined reference to `pthread_create'
+collect2: ld returned 1 exit status
+make: *** [adivino] Error 1
+
