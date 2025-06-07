@@ -1,0 +1,70 @@
+mauricio@mauricio-laptop:/mnt/shared/tp_multithreading_molina$ make
+rm -rf *o jugador *~
+gcc -o jugador --pedantic-errors -Wall -O3 -I./ -pthread jugador.c funciones.c cola.c clave.c thread.c -pthread
+jugador.c: In function ‘main’:
+jugador.c:54: warning: control reaches end of non-void function
+jugador.c:21: warning: ‘cant_jugadores’ is used uninitialized in this function
+cola.c: In function ‘enviar_mensaje’:
+cola.c:31: warning: type-punning to incomplete type might break strict-aliasing rules
+cola.c: In function ‘recibir_mensaje’:
+cola.c:39: warning: type-punning to incomplete type might break strict-aliasing rules
+cola.c: In function ‘borrar_mensajes’:
+cola.c:55: warning: type-punning to incomplete type might break strict-aliasing rules
+thread.c: In function ‘ThreadJugador’:
+thread.c:11: warning: unused variable ‘done’
+thread.c:10: warning: unused variable ‘id_cola_mensajes’
+mauricio@mauricio-laptop:/mnt/shared/tp_multithreading_molina$ ./jugador
+Soy el jugador -1243436144
+0 0 0 0 0 0 
+Soy el jugador 1
+0 0 0 0 0 0 
+Soy el jugador 2
+0 0 0 0 0 0 
+Soy el jugador 3
+0 0 0 0 0 0 
+Finalizo el jugador -1243436144 
+Finalizo el jugador 1 
+Finalizo el jugador 2 
+Finalizo el jugador 3 
+Soy el jugador 4
+0 0 0 0 0 0 
+Finalizo el jugador 4 
+Soy el jugador 5
+0 0 0 0 0 0 
+Finalizo el jugador 5 
+*** glibc detected *** ./jugador: free(): invalid next size (fast): 0x0804b008 ***
+======= Backtrace: =========
+/lib/tls/i686/cmov/libc.so.6[0xb7e9ca85]
+/lib/tls/i686/cmov/libc.so.6(cfree+0x90)[0xb7ea04f0]
+./jugador[0x8048c52]
+/lib/tls/i686/cmov/libc.so.6(__libc_start_main+0xe0)[0xb7e47450]
+./jugador[0x8048931]
+======= Memory map: ========
+08048000-0804a000 r-xp 00000000 00:16 85         /mnt/shared/tp_multithreading_molina/jugador
+0804a000-0804b000 rw-p 00001000 00:16 85         /mnt/shared/tp_multithreading_molina/jugador
+0804b000-0806c000 rw-p 0804b000 00:00 0          [heap]
+b4e29000-b4e2a000 ---p b4e29000 00:00 0 
+b4e2a000-b562a000 rw-p b4e2a000 00:00 0 
+b562a000-b562b000 ---p b562a000 00:00 0 
+b562b000-b5e2b000 rw-p b562b000 00:00 0 
+b5e2b000-b5e2c000 ---p b5e2b000 00:00 0 
+b5e2c000-b662c000 rw-p b5e2c000 00:00 0 
+b662c000-b662d000 ---p b662c000 00:00 0 
+b662d000-b6e2d000 rw-p b662d000 00:00 0 
+b7e2f000-b7e31000 rw-p b7e2f000 00:00 0 
+b7e31000-b7f7a000 r-xp 00000000 08:01 66421      /lib/tls/i686/cmov/libc-2.7.so
+b7f7a000-b7f7b000 r--p 00149000 08:01 66421      /lib/tls/i686/cmov/libc-2.7.so
+b7f7b000-b7f7d000 rw-p 0014a000 08:01 66421      /lib/tls/i686/cmov/libc-2.7.so
+b7f7d000-b7f80000 rw-p b7f7d000 00:00 0 
+b7f80000-b7f94000 r-xp 00000000 08:01 66486      /lib/tls/i686/cmov/libpthread-2.7.so
+b7f94000-b7f96000 rw-p 00013000 08:01 66486      /lib/tls/i686/cmov/libpthread-2.7.so
+b7f96000-b7f98000 rw-p b7f96000 00:00 0 
+b7f98000-b7fa2000 r-xp 00000000 08:01 32771      /lib/libgcc_s.so.1
+b7fa2000-b7fa3000 rw-p 0000a000 08:01 32771      /lib/libgcc_s.so.1
+b7fa3000-b7fa6000 rw-p b7fa3000 00:00 0 
+b7fa6000-b7fc0000 r-xp 00000000 08:01 32724      /lib/ld-2.7.so
+b7fc0000-b7fc2000 rw-p 00019000 08:01 32724      /lib/ld-2.7.so
+bfcdd000-bfcf2000 rw-p bfcdd000 00:00 0          [stack]
+ffffe000-fffff000 r-xp 00000000 00:00 0          [vdso]
+Aborted (core dumped)
+
