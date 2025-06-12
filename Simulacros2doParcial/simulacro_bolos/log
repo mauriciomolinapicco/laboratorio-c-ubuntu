@@ -1,0 +1,17 @@
+------ Shared Memory Segments --------
+key        shmid      owner      perms      bytes      nattch     status      
+0x00000000 98304      mauricio  600        393216     2          dest         
+0x00000000 131073     mauricio  600        393216     2          dest         
+0x00000000 229378     mauricio  600        393216     2          dest         
+0x00000000 262147     mauricio  600        393216     2          dest         
+0x00000000 294916     mauricio  600        393216     2          dest         
+0x00000000 327685     mauricio  600        393216     2          dest         
+0x00000000 360454     mauricio  600        393216     2          dest         
+0x00000000 393223     mauricio  600        393216     2          dest         
+0x00000000 425992     mauricio  600        393216     2          dest         
+0x00000000 458761     mauricio  600        393216     2          dest         
+0x21012e19 491530     mauricio  777        4          0                       
+0x00000000 524299     mauricio  600        393216     2          dest         
+0x22012e19 557068     mauricio  777        4          0                       
+
+ipcs -m | awk '/mauricio/ { system("ipcrm -m " $2) }'
