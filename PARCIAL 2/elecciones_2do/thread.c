@@ -17,6 +17,8 @@ void *ThreadVotante (void *parametro)
     DatosVotante *datos = (DatosVotante*) parametro;
     int cant_votos=0;
     char nombre[20];
+    char candidato_1[25];
+    char candidato_2[25];
     char msg_cola[5];
     int voto;
 
@@ -25,8 +27,13 @@ void *ThreadVotante (void *parametro)
 
     if (nro_tipo_votante == 0) {
         strcpy(nombre, "Presidente");
+        strcpy(candidato_1, "Senior MS");
+	    strcpy(candidato_2, "Senior MI");
     } else {
         strcpy(nombre, "Vicepresidente");
+        strcpy(candidato_1, "Senior A");
+	    strcpy(candidato_2, "Seniora V");
+
     }
     
     recibir_mensaje(id_cola_mensajes, MSG_VOTANTE+nro_tipo_votante, &msg);
@@ -40,7 +47,12 @@ void *ThreadVotante (void *parametro)
         voto = generar_numero_random(0,1);
         cant_votos++;
         sprintf(msg_cola, "%d", voto);
-        printf("Votante: %d (%s) => Voto al candidato %d\n", cant_votos, nombre, voto);
+        if (voto == 0) {
+            printf("Votante %d para %s => %s\n", cant_votos, nombre, candidato_1);
+        } else {
+            printf("Votante %d para %s => %s\n", cant_votos, nombre, candidato_2);
+        }
+        
         
         if (nro_tipo_votante == 0) {
             enviar_mensaje(id_cola_mensajes, MSG_PANEL, MSG_VOTANTE+nro_tipo_votante, EVT_VOTO_PRESIDENTE, msg_cola); 
@@ -50,7 +62,7 @@ void *ThreadVotante (void *parametro)
            
 
         pthread_mutex_unlock(&mutex);
-        usleep(500*1000);
+        usleep(200*1000);
 
     }
     

@@ -14,13 +14,13 @@ int main(int argc, char *argv[])
 {
     int id_cola_mensajes;
     mensaje msg;
-	int done=0;
 	int i;
 	int voto;
 	int id_memoria;
 	int id_semaforo;
 	Postulante presidentes[2];
 	Postulante vices[2];
+	int cant_votos_total=0;
 
     Sincronizacion *memoria = NULL;  
 
@@ -66,20 +66,22 @@ int main(int argc, char *argv[])
 	strcpy(vices[0].nombre, "Senior A");
 	strcpy(vices[1].nombre, "Seniora V");
 
-	while (done==0)
+	while (cant_votos_total < CANT_VOTANTES*2)
 	{
+	
 		recibir_mensaje(id_cola_mensajes, MSG_PANEL, &msg);
 
 		voto = atoi(msg.char_mensaje);
+		cant_votos_total++;
 
 	    switch (msg.int_evento) {
 			case EVT_VOTO_PRESIDENTE:
-				printf("Nuevo voto para: %s \n", presidentes[voto].nombre);
+				printf("Nuevo voto para PRESIDENTE: %s \n", presidentes[voto].nombre);
 				presidentes[voto].cant_votos++;
 				break;
 			
 			case EVT_VOTO_VICE:
-				printf("Nuevo voto para: %s \n", vices[voto].nombre);
+				printf("Nuevo voto para VICE: %s \n", vices[voto].nombre);
 				vices[voto].cant_votos++;
 				break;				
 
@@ -88,21 +90,35 @@ int main(int argc, char *argv[])
 				break;
     	}
 
-		usleep(300*1000);
+		usleep(100*1000);
 	}
 
-	if (presidentes[0].cant_votos > presidentes[i].cant_votos) {
+	printf("--- RESULTADOS --- \n");
+
+	if (presidentes[0].cant_votos > presidentes[1].cant_votos) {
 		printf("PRESIDENTE: Ganador %s con %d votos \n", presidentes[0].nombre, presidentes[0].cant_votos);
-	} else if (presidentes[0].cant_votos < presidentes[i].cant_votos) {
+	} else if (presidentes[0].cant_votos < presidentes[1].cant_votos) {
 		printf("PRESIDENTE: Ganador %s con %d votos \n",
-			presidentes[i].nombre,
-			presidentes[i].cant_votos);
+			presidentes[1].nombre,
+			presidentes[1].cant_votos);
 	}
 	else {
 		printf("EMPATE entre %s y %s con %d votos\n",
 			presidentes[0].nombre,
-			presidentes[i].nombre,
+			presidentes[1].nombre,
 			presidentes[0].cant_votos);
+	}
+
+	if (vices[0].cant_votos > vices[1].cant_votos) {
+		printf("VICEPRESIDENTE: Ganador %s con %d votos \n", vices[0].nombre, vices[0].cant_votos);
+	} else if (vices[0].cant_votos < vices[1].cant_votos) {
+		printf("VICEPRESIDENTE: Ganador %s con %d votos \n", vices[1].nombre, vices[1].cant_votos);
+	}
+	else {
+		printf("EMPATE entre %s y %s con %d votos\n",
+			vices[0].nombre,
+			vices[1].nombre,
+			vices[0].cant_votos);
 	}
 
 
